@@ -24,8 +24,6 @@ void Game::Start()
 {
     *log << "Game Start";
     
-    
-    
 }
 void Game::Input(sf::Event e)
 {

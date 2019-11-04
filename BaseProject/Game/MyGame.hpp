@@ -12,6 +12,9 @@
 #include <stdio.h>
 #include "Game.hpp"
 
+#include "Track.hpp"
+#include "Car.hpp"
+
 class MyGame : public Game
 {
 public:
@@ -24,7 +27,10 @@ public:
     void LateUpdate() override;
     
 private:
+    Track track;
+    sf::Texture cartexture;
     
+    std::vector<Car*> cars;
 };
 
 #endif /* MyGame_hpp */

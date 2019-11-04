@@ -52,6 +52,10 @@
 		0BCA9B7B236F1240002603A1 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BCA9B75236F1240002603A1 /* imgui_demo.cpp */; };
 		0BCA9B7C236F1240002603A1 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BCA9B76236F1240002603A1 /* imgui_draw.cpp */; };
 		0BCA9B81236F127B002603A1 /* libsfml-audio.2.5.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0B3004D622B538FC007515D0 /* libsfml-audio.2.5.1.dylib */; };
+		0BF7DB142370519D002637C6 /* Track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7DB122370519D002637C6 /* Track.cpp */; };
+		0BF7DB1823705307002637C6 /* Car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7DB1623705307002637C6 /* Car.cpp */; };
+		0BF7DB1B2370531A002637C6 /* Chromosome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7DB192370531A002637C6 /* Chromosome.cpp */; };
+		0BF7DB1E23705336002637C6 /* CarMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7DB1C23705336002637C6 /* CarMemory.cpp */; };
 		0BFB4AD3236F38AA00EAE02B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCA9B7D236F126A002603A1 /* OpenGL.framework */; };
 		0BFB4AD4236F38AA00EAE02B /* OpenGL.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0BCA9B7D236F126A002603A1 /* OpenGL.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0BFB4AD8236F478500EAE02B /* MyGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFB4AD6236F478500EAE02B /* MyGame.cpp */; };
@@ -177,6 +181,14 @@
 		0BCA9B75236F1240002603A1 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_demo.cpp; sourceTree = "<group>"; };
 		0BCA9B76236F1240002603A1 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
 		0BCA9B7D236F126A002603A1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		0BF7DB122370519D002637C6 /* Track.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Track.cpp; sourceTree = "<group>"; };
+		0BF7DB132370519D002637C6 /* Track.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Track.hpp; sourceTree = "<group>"; };
+		0BF7DB1623705307002637C6 /* Car.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Car.cpp; sourceTree = "<group>"; };
+		0BF7DB1723705307002637C6 /* Car.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Car.hpp; sourceTree = "<group>"; };
+		0BF7DB192370531A002637C6 /* Chromosome.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chromosome.cpp; sourceTree = "<group>"; };
+		0BF7DB1A2370531A002637C6 /* Chromosome.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chromosome.hpp; sourceTree = "<group>"; };
+		0BF7DB1C23705336002637C6 /* CarMemory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CarMemory.cpp; sourceTree = "<group>"; };
+		0BF7DB1D23705336002637C6 /* CarMemory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CarMemory.hpp; sourceTree = "<group>"; };
 		0BFB4AD6236F478500EAE02B /* MyGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyGame.cpp; sourceTree = "<group>"; };
 		0BFB4AD7236F478500EAE02B /* MyGame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyGame.hpp; sourceTree = "<group>"; };
 		0BFB4AD9236F48B200EAE02B /* MyMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyMenu.cpp; sourceTree = "<group>"; };
@@ -394,11 +406,27 @@
 			path = "imGui-SFML";
 			sourceTree = "<group>";
 		};
+		0BF7DB15237052E4002637C6 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7DB1623705307002637C6 /* Car.cpp */,
+				0BF7DB1723705307002637C6 /* Car.hpp */,
+				0BF7DB192370531A002637C6 /* Chromosome.cpp */,
+				0BF7DB1A2370531A002637C6 /* Chromosome.hpp */,
+				0BF7DB1C23705336002637C6 /* CarMemory.cpp */,
+				0BF7DB1D23705336002637C6 /* CarMemory.hpp */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
 		0BFB4AD5236F46E700EAE02B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				0BF7DB15237052E4002637C6 /* Car */,
 				0BFB4AD6236F478500EAE02B /* MyGame.cpp */,
 				0BFB4AD7236F478500EAE02B /* MyGame.hpp */,
+				0BF7DB122370519D002637C6 /* Track.cpp */,
+				0BF7DB132370519D002637C6 /* Track.hpp */,
 				0BFB4AD9236F48B200EAE02B /* MyMenu.cpp */,
 				0BFB4ADA236F48B200EAE02B /* MyMenu.hpp */,
 			);
@@ -476,8 +504,10 @@
 				0B0F42AF232C299000190405 /* ElasticSprite.cpp in Sources */,
 				0B0F42AE232C299000190405 /* BitmapFont.cpp in Sources */,
 				0BCA9B7C236F1240002603A1 /* imgui_draw.cpp in Sources */,
+				0BF7DB1E23705336002637C6 /* CarMemory.cpp in Sources */,
 				0B0F42B8232C299000190405 /* ConsoleScreenOld.cpp in Sources */,
 				0B0F42B5232C299000190405 /* SpinningCard.cpp in Sources */,
+				0BF7DB142370519D002637C6 /* Track.cpp in Sources */,
 				0BFB4AD8236F478500EAE02B /* MyGame.cpp in Sources */,
 				0B0F42B7232C299000190405 /* GallerySprite.cpp in Sources */,
 				0B0F42BC232C299000190405 /* Starfield.cpp in Sources */,
@@ -496,6 +526,8 @@
 				0B0F42B1232C299000190405 /* Sprite3d.cpp in Sources */,
 				0B0F42BB232C299000190405 /* Spline.cpp in Sources */,
 				0B458388232D459D00D561B6 /* collision.cpp in Sources */,
+				0BF7DB1823705307002637C6 /* Car.cpp in Sources */,
+				0BF7DB1B2370531A002637C6 /* Chromosome.cpp in Sources */,
 				0BCA9B7A236F1240002603A1 /* imgui_stdlib.cpp in Sources */,
 				0B6233E922B5918E00E29872 /* WindowHolder.cpp in Sources */,
 				0BCA9B78236F1240002603A1 /* imgui.cpp in Sources */,

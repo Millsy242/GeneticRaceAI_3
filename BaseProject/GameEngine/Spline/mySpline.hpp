@@ -18,20 +18,25 @@
 
 struct Point
 {
-	float x,y;
+    float x,y;
 };
 
 struct mySpline
 {
-	std::vector<Point> points;
+    std::vector<Point> points;
     float Length = 0.0f;
     bool Loop = true;
     sf::Vector2f scale = {1,1};
-	
-	void AddPoint(sf::Vector2f point)
-	{
-		points.push_back(Point{point.x,point.y});
-	}
+    
+    int getNumberofPoints()
+    {
+        return (int)points.size();
+    }
+    
+    void AddPoint(sf::Vector2f point)
+    {
+        points.push_back(Point{point.x,point.y});
+    }
     
     sf::Vector2f GetSplinePoint(float t)
     {

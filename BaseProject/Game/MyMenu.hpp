@@ -25,6 +25,7 @@ public:
     void LateUpdate() override;
     
 private:
+    
 };
 
 #endif /* MyMenu_hpp */
