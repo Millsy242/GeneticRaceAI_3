@@ -19,8 +19,6 @@ void Car::LoadTexture(std::string filepath)
     EntitySprite.setTexture(EntityTexture);
     EntitySprite.setColor(CarColour);
     EntitySprite.setOrigin(EntitySprite.getLocalBounds().width/2, EntitySprite.getLocalBounds().height-10);
-    
-    
 }
 void Car::LoadTexture(sf::Texture texture)
 {
@@ -110,7 +108,7 @@ void Car::EntityUpdate()
     float speedDif = speed - BpointANDSpeed.second;
     float BrakingDistance = (speedDif * speedDif)/(250.f * grip);
     float ReactionDistance = speed * reactionTime;
-    std::cout<< "Braking Distance = " << BrakingDistance << "\n Fmarker = " << fmarker<<"\n";
+    //std::cout<< "Braking Distance = " << BrakingDistance << "\n Fmarker = " << fmarker<<"\n";
     if(speed > BpointANDSpeed.second)
     {
         if(ReactionDistance + BrakingDistance >= DistanceToNode)
@@ -197,8 +195,10 @@ void Car::UpdateRacingLine()
         // Clamp displaced points to track width
         for (int i = 0; i < RacingLine.points.size(); i++)
         {
-            if (fDisplacement[i] >= TrackWidth) fDisplacement[i] = TrackWidth;
-            if (fDisplacement[i] <= -TrackWidth) fDisplacement[i] = -TrackWidth;
+            if (fDisplacement[i] >= TrackWidth)
+                fDisplacement[i] = TrackWidth;
+            if (fDisplacement[i] <= -TrackWidth)
+                fDisplacement[i] = -TrackWidth;
 
             sf::Vector2f g = CSpline->GetSplineGradient(i);
             float glen = sqrtf(g.x*g.x + g.y*g.y);

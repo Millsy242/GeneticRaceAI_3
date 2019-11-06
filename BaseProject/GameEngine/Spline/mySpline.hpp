@@ -14,7 +14,7 @@
 #include <math.h>
 #include "SfMath.hpp"
 #include "Window.hpp"
-
+#include "SelbaWard.hpp"
 
 struct Point
 {
@@ -166,59 +166,58 @@ struct mySpline
     }
     void DrawSelf(Window *window, sf::Color col = sf::Color::White, sf::Vector2f lineSize = {8,8})
     {
-        sf::RectangleShape tri;
-        tri.setFillColor(col);
-        tri.setSize(lineSize);
-        tri.setScale(scale);
+
+        sw::Line Line;
+        Line.setThickness(lineSize.x);
+        Line.setColor(col);
         
-        float inc = (0.005f / (scale.x * 10)) * scale.x *20;
+        
+        float inc = 0.125 ; //(0.01f) / (scale.x * 10)) * scale.x *20;
         
         if(Loop)
         {
             for(float t{0}; t<(float)points.size();t+=inc)
             {
-                auto pos = GetSplinePoint(t);
-                tri.setPosition(pos);
-                window->draw(tri);
+                auto ti = t + inc;
+                if(ti >= points.size())
+                {
+                    ti = 0;
+                }
+                auto startpos = GetSplinePoint(t);
+                auto endpos = GetSplinePoint(ti);
+                Line.setPoints(startpos, endpos);
+                window->draw(Line);
+
             }
         }
-        else
-        {
-            for(float t{0}; t<(float)points.size()-3;t+=inc)
-            {
-                auto pos = GetSplinePoint(t);
-                tri.setPosition(pos);
-                window->draw(tri);
-            }
-        }
+
     }
     void DrawSelf(sf::RenderTexture *RT, sf::Color col = sf::Color::White)
     {
-        sf::RectangleShape tri;
-        tri.setFillColor(col);
-        tri.setSize(sf::Vector2f(8,8));
-        tri.setScale(scale);
-        
-        float inc = (0.005f / (scale.x * 10)) * scale.x *20;
-        
-        if(Loop)
-        {
-            for(float t{0}; t<(float)points.size();t+=inc)
-            {
-                auto pos = GetSplinePoint(t);
-                tri.setPosition(pos);
-                RT->draw(tri);
-            }
-        }
-        else
-        {
-            for(float t{0}; t<(float)points.size()-3;t+=inc)
-            {
-                auto pos = GetSplinePoint(t);
-                tri.setPosition(pos);
-                RT->draw(tri);
-            }
-        }
+    sw::Line Line;
+          Line.setThickness(8);
+          Line.setColor(col);
+          
+          
+          float inc = 0.125 ; //(0.01f) / (scale.x * 10)) * scale.x *20;
+          
+          if(Loop)
+          {
+              for(float t{0}; t<(float)points.size();t+=inc)
+              {
+                  auto ti = t + inc;
+                  if(ti >= points.size())
+                  {
+                      ti = 0;
+                  }
+                  auto startpos = GetSplinePoint(t);
+                  auto endpos = GetSplinePoint(ti);
+                  Line.setPoints(startpos, endpos);
+                  RT->draw(Line);
+
+              }
+          }
+
     }
     std::vector<sf::Vector2f> getSplineLine()
     {
